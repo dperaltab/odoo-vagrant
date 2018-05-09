@@ -7,7 +7,7 @@ function print_out {
   echo "--------------------------------------------------"
 }
 
-echo "Welcome to odoo-9 installer for ubuntu 16.04"
+echo "Welcome to odoo-10 installer for ubuntu 16.04"
 echo "Use only for dev, never for production"
 echo "Take a cup of cofee while odoo is installing"
 
@@ -47,7 +47,7 @@ sudo ln -s /usr/local/bin/wkhtmltoimage /usr/bin/ > /dev/null
 rm -fr wkhtmltox-0.12.2.1_linux-trusty-amd64.deb > /dev/null
 
 print_out "Download odoo from github"
-git clone --depth=1 --branch=9.0 https://github.com/odoo/odoo.git ~/odoo-dev/odoo > /dev/null
+git clone --depth=1 --branch=10.0 https://github.com/odoo/odoo.git ~/odoo-dev/odoo > /dev/null
 
 print_out "Install pip dependencies for odoo (it may take a log time)"
 sudo -H pip install --upgrade pip > /dev/null
@@ -59,8 +59,8 @@ sudo -H pip install --upgrade --pre pylint-odoo > /dev/null
 print_out "Create dbuser (vagrant)"
 sudo su - postgres -c "createuser -s $(whoami)" > /dev/null
 
-print_out "Create db (v9dev)"
-createdb v9dev > /dev/null
+print_out "Create db (odev10)"
+createdb odev10 > /dev/null
 
 print_out "Create user for pgadmin (admin:admin)"
 sudo su - postgres -c "createuser -s admin" > /dev/null
@@ -73,6 +73,6 @@ sudo service postgresql restart
 print_out "End of installation"
 
 echo "Login into the VM 'vagrant ssh'"
-echo "To start odoo type '~/odoo-dev/odoo/odoo.py -d v9dev'"
+echo "To start odoo type '~/odoo-dev/odoo/odoo.py -d odev10'"
 echo "Open your browser and go to http://localhost:8069 (admin:admin)"
 echo "Enjoy it !"

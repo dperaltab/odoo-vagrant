@@ -1,6 +1,6 @@
 # odoo-vagrant
 
-Vagrant Setup for Odoo 9 on Ubuntu 16.04
+Vagrant Setup for Odoo 10.0 on Ubuntu 16.04
 
 Dependencies
 ------------
@@ -18,7 +18,7 @@ Setup
 * Clone this repo
 
 ```
-git clone http://github.com/kamaxeon/odoo-vagrant.git
+git clone http://github.com/dperaltab/odoo-vagrant.git
 ```
 
 * Start virtual machine
@@ -33,7 +33,7 @@ vagrant up
 
 ```
 vagrant ssh
-~/odoo-dev/odoo/odoo.py -d v9dev
+~/odoo-dev/odoo/odoo.py -d odev10
 ```
 
 * Open your browser and go http://localhost:8069 (admin:admin)
