@@ -1,6 +1,6 @@
 # odoo-vagrant
 
-Vagrant Setup for Odoo 10.0 on Ubuntu 16.04
+Vagrant Setup for Odoo 11.0 on Ubuntu 16.04
 
 Dependencies
 ------------
@@ -33,7 +33,7 @@ vagrant up
 
 ```
 vagrant ssh
-~/odoo-dev/odoo/odoo.py -d odev10
+~/odoo-dev/odoo/odoo.py -d odev11
 ```
 
 * Open your browser and go http://localhost:8069 (admin:admin)
