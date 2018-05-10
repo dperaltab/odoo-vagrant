@@ -33,7 +33,7 @@ vagrant up
 
 ```
 vagrant ssh
-~/odoo-dev/odoo/odoo.py -d odev11
+./odoo-dev/odoo/odoo-bin -d odev11
 ```
 
 * Open your browser and go http://localhost:8069 (admin:admin)
