@@ -24,7 +24,7 @@ print_out "Install git and vim"
 sudo apt-get install git vim  -y > /dev/null
 
 print_out "Install odoo dev dependencies (it may take a long time)"
-sudo apt-get install python3.5 python3-ldap3 python3.5-dev libldap2-dev libsasl2-dev virtualenv postgresql-server-dev-9.5 python3-pip -y > /dev/null
+sudo apt-get install python3.5 python3-ldap3 python3.5-dev libldap2-dev libsasl2-dev virtualenv postgresql-server-dev-9.5 python3-pip unoconv subversion -y > /dev/null
 
 print_out "Install postgresql"
 sudo apt-get install postgresql -y > /dev/null
@@ -44,6 +44,17 @@ wget -q https://github.com/wkhtmltopdf/wkhtmltopdf/releases/download/0.12.4/wkht
 sudo tar -xvf wkhtmltox-0.12.4_linux-generic-amd64.tar.xz > /dev/null
 sudo mv wkhtmltox/bin/* /usr/local/bin/
 rm -fr wkhtmltox-0.12.4_linux-generic-amd64.tar.xz > /dev/null
+
+
+print_out "Install py3o.template"
+sudo -H pip3 install py3o.template==0.9.12 > /dev/null
+
+print_out "Download we tested this with revision 1271. When genshi 0.8 is released we can officially say we support Python3 out of the box."
+print_out "Reference install: https://bitbucket.org/faide/py3o.template"
+svn checkout https://svn.edgewall.org/repos/genshi/trunk genshi_trunk
+cd genshi_trunk
+sudo python3 setup.py build
+sudo python3 setup.py install
 
 print_out "Download odoo from github"
 git clone --depth=1 --branch=11.0 https://github.com/odoo/odoo.git ~/odoo-dev/odoo > /dev/null
