@@ -24,10 +24,10 @@ print_out "Install git and vim"
 sudo apt-get install git vim  -y > /dev/null
 
 print_out "Install odoo dev dependencies (it may take a long time)"
-sudo apt-get install python3.5 python3-ldap3 python3.5-dev libldap2-dev libsasl2-dev virtualenv postgresql-server-dev-9.5 python3-pip unoconv subversion -y > /dev/null
+sudo apt-get install python3.6 python3-ldap3 python3.6-dev python3-pip libldap2-dev libsasl2-dev libxml2-dev libxslt1-dev virtualenv postgresql-server-dev-9.6 unoconv subversion -y > /dev/null
 
 print_out "Install postgresql"
-sudo apt-get install postgresql -y > /dev/null
+sudo apt-get install postgresql-9.6 -y > /dev/null
 
 print_out "Install npm and node"
 sudo apt-get install npm nodejs -y > /dev/null
@@ -76,8 +76,8 @@ sudo su - postgres -c "createuser -s admin" > /dev/null
 sudo -u postgres psql -c "ALTER USER admin WITH PASSWORD 'admin';" > /dev/null
 
 print_out "Configure postgresql to listen in all interfaces"
-sudo sed -i "s/^#listen_addresses.*/listen_addresses = '*'/" /etc/postgresql/9.5/main/postgresql.conf
-sudo sh -c 'echo "host  all   all   all     password" >> /etc/postgresql/9.5/main/pg_hba.conf'
+sudo sed -i "s/^#listen_addresses.*/listen_addresses = '*'/" /etc/postgresql/9.6/main/postgresql.conf
+sudo sh -c 'echo "host  all   all   all     password" >> /etc/postgresql/9.6/main/pg_hba.conf'
 sudo service postgresql restart
 print_out "End of installation"
 
